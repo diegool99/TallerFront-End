@@ -82,7 +82,8 @@ const Register = () => {
           <option value="DEFAULT" disabled></option>
           {ciudades.map(ciudad => <Option {...ciudad} />)}
         </select></label>
-      <a><button>Registrar</button></a>
+      <a><button className="GreenBtn">Registrar</button></a>
+      <a><button className="AuxBtn">Volver a login</button></a>
     </form>
   )
 }
