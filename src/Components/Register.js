@@ -5,10 +5,11 @@ import '../Styles/Register.css';
 const Register = () => {
 
   //#region VARIABLES
-  const depto = useRef(null);
-
+  const deptoRef = useRef();
+  const [depto, setDepto] = useState();
   const [departamentos, setDeptos] = useState([]);
-  const[ciudades,setCuidades] = useState([]);
+  const [ciudades, setCuidades] = useState([]);
+
   //#endregion
 
   //#region Departamentos
@@ -26,19 +27,38 @@ const Register = () => {
       .then(response => response.json())
       .then(result => {
         setDeptos(result.departamentos.map(dpto => {
-          return {value: dpto.id, label:dpto.nombre}
+          return { value: dpto.id, label: dpto.nombre }
         }));
       })
       .catch(error => console.log('error', error));
-  },[]);
+  }, []);
 
+  const changeDepto = e => {
+    setDepto(deptoRef.current.value);
+  }
   //#endregion
 
   //#region Cuidades
   useEffect(() => {
+    var myHeaders = new Headers();
 
+    myHeaders.append("Content-Type", "application/json");
 
-  },[])
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+
+    fetch(`https://crypto.develotion.com//ciudades.php?idDepartamento=${depto}`, requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        setCuidades(result.ciudades.map(ciudad => {
+          return { value: ciudad.id, label: ciudad.nombre }
+        }))
+      })
+      .catch(error => console.log('error', error));
+  }, [depto])
   //#endregion
 
 
@@ -52,14 +72,15 @@ const Register = () => {
         <input id="RegisterPass" type="text" />
       </label>
       <label >Departamento
-        <select id="RegisterDep" defaultValue={'DEFAULT'} ref={depto}>
-          <option value="DEFAULT" disabled>Elija una ciudad</option>
-          {departamentos.map(dpto => <Option {...dpto}/>)}
+        <select id="RegisterDep" defaultValue={'DEFAULT'} ref={deptoRef} onChange={changeDepto}>
+          <option value="DEFAULT" disabled></option>
+          {departamentos.map(dpto => <Option {...dpto} />)}
         </select>
       </label>
       <label >Ciudad
         <select id="RegisterCity" defaultValue={'DEFAULT'}>
-          <option value="DEFAULT" disabled>Elija una ciudad</option>
+          <option value="DEFAULT" disabled></option>
+          {ciudades.map(ciudad => <Option {...ciudad} />)}
         </select></label>
       <a><button>Registrar</button></a>
     </form>
