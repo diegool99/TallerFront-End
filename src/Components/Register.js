@@ -53,15 +53,16 @@ const Register = () => {
       </label>
       <label >Departamento
         <select id="RegisterDep" defaultValue={'DEFAULT'} ref={depto}>
-          <option value="DEFAULT" disabled>Elija una ciudad</option>
+          <option value="DEFAULT" disabled></option>
           {departamentos.map(dpto => <Option {...dpto}/>)}
         </select>
       </label>
       <label >Ciudad
         <select id="RegisterCity" defaultValue={'DEFAULT'}>
-          <option value="DEFAULT" disabled>Elija una ciudad</option>
+          <option value="DEFAULT" disabled></option>
         </select></label>
-      <a><button>Registrar</button></a>
+      <a><button className="GreenBtn">Registrar</button></a>
+      <a><button className="AuxBtn">Volver a login</button></a>
     </form>
   )
 }
