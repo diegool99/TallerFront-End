@@ -69,7 +69,7 @@ const Register = () => {
         <input id="RegisterUser" type="text" />
       </label>
       <label >Contraseña
-        <input id="RegisterPass" type="text" />
+        <input id="RegisterPass" type="password" />
       </label>
       <label >Departamento
         <select id="RegisterDep" defaultValue={'DEFAULT'} ref={deptoRef} onChange={changeDepto}>
