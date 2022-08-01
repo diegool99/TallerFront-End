@@ -1,7 +1,7 @@
 
 const Login = () => {
   return (
-    <form className='App form' >
+    <section className='App form' >
       <h2>Login</h2>
       <label >Usuario
         <input id="LoginUser" type="text" />
@@ -9,9 +9,9 @@ const Login = () => {
       <label >Contraseña
         <input id="LoginPass" type="password" />
       </label>
-      <a><button className="GreenBtn">Ingresar</button></a>
-      <a><button className="AuxBtn">Registrarme</button></a>
-    </form>
+      <p><button className="GreenBtn">Ingresar</button></p>
+      <p><button className="AuxBtn">Registrarme</button></p>
+    </section>
   )
 }
 
