@@ -44,6 +44,12 @@ const Login = () => {
       .then(result => {
         switch (result.codigo) {
           case 200:
+            let usuarioLogeado = {
+              id: result.id,
+              user: userNew,
+              token: result.apiKey
+            }
+            localStorage.setItem("user",usuarioLogeado);
             toast.success("Se a iniciado sesión correctamente", {
               position: "bottom-center",
               autoClose: 5000,
@@ -85,7 +91,7 @@ const Login = () => {
         <input id="LoginPass" type="password" ref={pass} onChange={habilitarBoton} />
       </label>
       <p><button className={btnStyle} onClick={iniciarSesion}>Ingresar</button></p>
-      <p><button className="AuxBtn">Registrarme</button></p>
+      <p><button className="AuxBtn">Quiero registrarme</button></p>
       <ToastContainer/>
     </section>
   )

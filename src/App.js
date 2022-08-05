@@ -1,11 +1,14 @@
 import './App.css';
+import Dashboard from './Components/Dashboard';
 import Login from './Components/Login';
-import Register from './Components/Register';
+import Register from './Components/Register'
+
 
 const App = () => {
   return (
     //<Register />
-    <Login />
+    //<Login />
+    <Dashboard/>
   )
 }
 

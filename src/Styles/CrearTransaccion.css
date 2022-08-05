@@ -1,0 +1,153 @@
+.form {
+    width: 340px;
+    height: auto;
+    background: #242132;
+    border-radius: 8px;
+    box-shadow: 0 0 40px -10px #d278ff;
+    margin: auto;
+    margin: calc(50vh - 330px) auto;
+    padding: 20px 30px;
+    max-width: calc(100vw - 40px);
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: relative;
+    color: #FEFCFF;
+  }
+
+  article div {
+    width: 50%;
+    display: inline-block;
+  }
+  
+  h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin: 10px 0;
+    padding-bottom: 10px;
+    width: 180px;
+    color: #FEFCFF;
+    border-bottom: 3px solid #746CFE;
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding-top: 10px;
+    box-sizing: border-box;
+    background: none;
+    /* outline: none; */
+    resize: none;
+    border: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    transition: all 0.3s;
+    border-bottom: 2px solid #746CFE;
+    color: #FEFCFF;
+  }
+
+  input{
+    width: 50%;
+    border: 2px solid #746CFE;
+  }
+  label{
+    display: block;
+  }
+  
+  option {
+    color: #FEFCFF;
+    border: 0;
+    background: #242132;
+  }
+  
+  input:focus {
+    border: 2px solid #746CFE;
+    padding: 20px 0;
+  }
+  
+  label:before {
+    content: attr(type);
+    display: block;
+    margin: 28px 0 0;
+    font-size: 14px;
+    color: #242132;
+  }
+  
+  
+  
+  /*#region GreenBtn =====================================================================================================*/
+  
+  .GreenBtn {
+    margin: 40px auto;
+    margin-bottom: 10px;
+    padding: 8px 40px;
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    outline: none;
+    border-radius: 4px;
+    border: none;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5), 7px 7px 20px 0px rgba(0, 0, 0, .1), 4px 4px 5px 0px rgba(0, 0, 0, .1);
+    background: #2ab464;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .GreenBtn:hover:after {
+    width: 100%;
+    left: 0;
+  }
+  
+  .GreenBtn:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+    border-radius: 4px;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5), 7px 7px 20px 0px rgba(0, 0, 0, .1), 4px 4px 5px 0px rgba(0, 0, 0, .1);
+    transition: all 0.3s ease;
+    background-color: #36d45b;
+    right: 0;
+  }
+  
+  .GreenBtn:active {
+    top: 2px;
+  }
+  
+  /*#endregion */
+  
+  /*#region AuxBtn =====================================================================================================*/
+  
+  .AuxBtn {
+    margin: auto;
+    padding: 6px 26px;
+    min-width: 130px;
+    height: 20px;
+    color: #746CFE;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    outline: none;
+    border: none;
+    border-color: #746CFE;
+    background: #736cfe00;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  
+  
+  /*#endregion */
+  
