@@ -11,16 +11,19 @@ const CrearTransaccion = () => {
                     </select>
                 </label>
             </article>
-            <label>Saldo</label>
             <article>
-                <label>Moneda</label>
-                <input type='text'></input>
-                <label>$</label>
-                <input type='text'></input>
+            <label>Valor actual</label>
+            <h2>U$D 25.50</h2>
+            <label>Saldo actual</label>
+            <h2>U$D 230.00</h2>
             </article>
             <article>
-                <p><button>Comprar</button></p>
-                <p><button>Vender</button></p>
+                <label>Transacciones</label>
+                <input type='number'></input>
+            </article>
+            <article>
+                <p><button className='GreenBtn'>Comprar</button></p>
+                <p><button className='GreenBtn'>Vender</button></p>
             </article>
         </section>
     )
