@@ -8,7 +8,7 @@ const App = () => {
   return (
     //<Register />
     //<Login />
-    <Dashboard/>
+    <Dashboard />
   )
 }
 
