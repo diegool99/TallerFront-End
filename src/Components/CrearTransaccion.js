@@ -1,4 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { agregarTransaccion } from "../Features/transaccionesSlice";
+import { guardarMonedas } from "../Features/monedasReducer";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import '../Styles/CrearTransaccion.css'
@@ -6,15 +9,19 @@ import Option from './Option';
 
 const CrearTransaccion = () => {
 
+  const token = useSelector(state => state.apiKey.apiKey);
+
   const monedaRef = useRef(0);
   const montoRef = useRef(0);
   const [valorMoneda, setValorMoneda] = useState("");
   const [monedas, setMonedas] = useState([]);
+  const dispatch = useDispatch();
+  const transacciones = useSelector(state => state.transacciones.transacciones);
 
   useEffect(() => {
 
     let myHeaders = new Headers();
-    myHeaders.append("apiKey", "949843be40c7ba753ad8427e5de1478f");
+    myHeaders.append("apiKey", token);
     myHeaders.append("Content-Type", "application/json");
 
     let requestOptions = {
@@ -25,9 +32,11 @@ const CrearTransaccion = () => {
     fetch("https://crypto.develotion.com/monedas.php", requestOptions)
       .then(response => response.json())
       .then(result => {
-        setMonedas(result.monedas.map(moneda => {
+        let aux = result.monedas.map(moneda => {
           return { value: moneda.id, label: moneda.nombre, cotizacion: moneda.cotizacion }
-        }));
+        });
+        setMonedas(aux);
+        dispatch(guardarMonedas(aux));
       })
       .catch(error => console.log('error', error));
   }, []);
@@ -43,21 +52,21 @@ const CrearTransaccion = () => {
     let cotizacion = monedas.find(moneda => moneda.value == monedaRef.current.value);
 
     let myHeaders = new Headers();
-    myHeaders.append("apiKey", "949843be40c7ba753ad8427e5de1478f");
+    myHeaders.append("apiKey", token);
     myHeaders.append("Content-Type", "application/json");
 
-    let raw = JSON.stringify({
-      "idUsuario": 3,
-      "tipoOperacion": e.target.id,
+    let raw = {
+      "usuarios_id": 3,
+      "tipo_operacion": e.target.id,
       "moneda": monedaRef.current.value,
       "cantidad": montoRef.current.value,
-      "valorActual": cotizacion.cotizacion,
-    });
+      "valor_actual": cotizacion.cotizacion,
+    }
 
     let requestOptions = {
       method: 'POST',
       headers: myHeaders,
-      body: raw,
+      body: JSON.stringify(raw),
       redirect: 'follow'
     };
 
@@ -66,6 +75,8 @@ const CrearTransaccion = () => {
       .then(result => {
         switch (result.codigo) {
           case 200:
+            raw.id = result.idTransaccion;
+            dispatch(agregarTransaccion(raw));
             toast.success(result.mensaje, {
               position: "bottom-center",
               autoClose: 5000,
