@@ -3,8 +3,11 @@ import ListadoTransacciones from "./ListadoTransacciones";
 
 const Dashboard = () => {
   return (
-    //<CrearTransaccion/>
-    <ListadoTransacciones/>
+    <div>
+      <CrearTransaccion/>
+      <hr/>
+      <ListadoTransacciones/>
+    </div> 
   )
 }
 

@@ -8,14 +8,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const ListadoTransacciones = () => {
 
+  const token = useSelector(state => state.apiKey.apiKey);
   const dispatch = useDispatch();
-  const transacciones = useSelector(state => state.transacciones.transacciones)
+  const transacciones = useSelector(state => state.transacciones.transacciones);
 
   //CARGO LAS TRANSACCIONES POR PRIMERA VEZ
 
   useEffect(() => {
     let myHeaders = new Headers();
-    myHeaders.append("apikey", "8157218737d7ac3027af6783f3a25f5a");
+    myHeaders.append("apikey", token);
     myHeaders.append("Content-Type", "application/json");
 
     let requestOptions = {
