@@ -80,7 +80,7 @@ const ListadoTransacciones = () => {
           </tr>
         </thead>
         <tbody>
-          {transacciones. map(transaccion => <Transaccion key={transaccion.id} {...transaccion}/>)}
+          {transacciones.map(transaccion => <Transaccion key={transaccion.id} {...transaccion}/>)}
         </tbody>
       </table>
       <ToastContainer/>
