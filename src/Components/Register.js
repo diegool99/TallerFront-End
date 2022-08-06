@@ -101,7 +101,7 @@ const Register = () => {
               pauseOnHover: true,
               draggable: true,
               progress: undefined,
-              style:{
+              style: {
                 background: '#242132'
               }
             });
@@ -115,7 +115,7 @@ const Register = () => {
               pauseOnHover: true,
               draggable: true,
               progress: undefined,
-              style:{
+              style: {
                 background: '#242132'
               }
             });
@@ -138,18 +138,18 @@ const Register = () => {
       </label>
       <label >Departamento
         <select id="RegisterDep" defaultValue={'DEFAULT'} ref={deptoRef} onChange={changeDepto}>
-          <option value="DEFAULT" disabled key={"defalut"}></option>
+          <option value="DEFAULT" disabled key={"DEFAULT"}></option>
           {departamentos.map((dpto, id) => <Option key={id} {...dpto} />)}
         </select>
       </label>
       <label >Ciudad
         <select id="RegisterCity" defaultValue={'DEFAULT'} ref={locRef}>
-          <option value="DEFAULT" disabled key={"defalut"}></option>
+          <option value="DEFAULT" disabled key={"DEFAULT"}></option>
           {ciudades.map((ciudad, id) => <Option key={id} {...ciudad} />)}
         </select></label>
       <p><button className="GreenBtn" onClick={registrarUsuario}>Registrar</button></p>
       <p><button className="AuxBtn">Volver a login</button></p>
-      <ToastContainer/>
+      <ToastContainer />
     </section>
   )
 }
