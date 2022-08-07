@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    apiKey: "1a9d49ee815c464cb176578494b5583a"
+    apiKey: "331aabd19922933bbf6441f5f0d8f64e"
 }
 
 export const apiKeyReducer = createSlice({
@@ -9,7 +9,7 @@ export const apiKeyReducer = createSlice({
     initialState,
     reducers:{
         token: (state) => {
-            state.apiKey = "1a9d49ee815c464cb176578494b5583a";
+            state.apiKey = "331aabd19922933bbf6441f5f0d8f64e";
         }
     }
 });

@@ -1,14 +1,15 @@
-import CrearTransaccion from "./CrearTransaccion"
-import Inversiones from "./Inversiones";
-import ListadoTransacciones from "./ListadoTransacciones";
+import CrearTransaccion from "./Transacciones/CrearTransaccion"
+import IAOperaciones from "./Transacciones/IAOperaciones";
+import Inversiones from "./Transacciones/Inversiones";
+import ListadoTransacciones from "./Transacciones/ListadoTransacciones";
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className="Container">
       <CrearTransaccion/>
       <ListadoTransacciones/>
-      <hr/>
       <Inversiones/>
+      {/* <IAOperaciones/> */}
     </div> 
   )
 }
