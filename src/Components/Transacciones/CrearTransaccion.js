@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../../Styles/CrearTransaccion.css'
 import Option from '../Option';
 
+
 const CrearTransaccion = () => {
 
   const token = useSelector(state => state.apiKey.apiKey);
@@ -16,7 +17,7 @@ const CrearTransaccion = () => {
   const [valorMoneda, setValorMoneda] = useState("");
   const [monedas, setMonedas] = useState([]);
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
 
     let myHeaders = new Headers();
@@ -113,7 +114,7 @@ const CrearTransaccion = () => {
   return (
     <section className='dashTrans'>
       <article>
-        <label className='dashTransMoneda'>Moneda
+        <label className='dashTrans'>Moneda
           <select id="ChangeMoneda" className='dashTrans' defaultValue={'DEFAULT'} ref={monedaRef} onChange={valorMonedaActual}>
             <option value="DEFAULT" disabled key={"DEFAULT"}></option>
             {monedas.map((moneda, id) => <Option key={id} {...moneda} />)}
