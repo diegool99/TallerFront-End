@@ -1,4 +1,5 @@
 import CrearTransaccion from "./CrearTransaccion"
+import Inversiones from "./Inversiones";
 import ListadoTransacciones from "./ListadoTransacciones";
 
 const Dashboard = () => {
@@ -6,6 +7,8 @@ const Dashboard = () => {
     <div>
       <CrearTransaccion/>
       <ListadoTransacciones/>
+      <hr/>
+      <Inversiones/>
     </div> 
   )
 }
