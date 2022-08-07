@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useSelector,useDispatch } from "react-redux/es/exports";
 import { guardarCompras,guardarTotal,guardarVentas } from "../../Features/InvertidoReducer";
+import '../../Styles/CrearTransaccion.css'
+import '../../Styles/Inversiones.css'
 
 const Inversiones = () => {
 
@@ -28,7 +30,7 @@ const Inversiones = () => {
     })
 
     return (
-        <section className="app form">
+        <section className="Classinversiones">
             <h1>Detalle de inversiones</h1>
             <label>Monto total en compras
                 <h2 style={{color: 'green'}}>$ {inversiones.compras}</h2>
@@ -37,7 +39,7 @@ const Inversiones = () => {
                 <h2 style={{color: 'red'}}>$ {-inversiones.ventas}</h2>
             </label>
             <label>Monto total invertido
-                <h1 style={{color: (inversiones.total > 0)? 'green' : 'red'}}>$ {inversiones.total}</h1>
+                <h2 style={{color: (inversiones.total > 0)? 'green' : 'red'}}>$ {inversiones.total}</h2>
             </label>
         </section>
     )
