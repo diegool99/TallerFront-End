@@ -5,7 +5,6 @@ const Dashboard = () => {
   return (
     <div>
       <CrearTransaccion/>
-      <hr/>
       <ListadoTransacciones/>
     </div> 
   )

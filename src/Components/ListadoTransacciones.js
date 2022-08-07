@@ -69,7 +69,7 @@ const ListadoTransacciones = () => {
 
   return (
     
-    <section className="App form">
+    <section className="tableTrans">
       <table>
         <thead>
           <tr>

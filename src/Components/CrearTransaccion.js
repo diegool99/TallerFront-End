@@ -127,7 +127,7 @@ const CrearTransaccion = () => {
       </article>
       <article>
         <label className='dashTrans'>Unidades</label>
-        <input className='dashTrans' ref={montoRef} type='number'></input>
+        <input className='dashTrans' min="0" step="1" ref={montoRef} type='number'></input>
       </article>
       <article>
         <p><button className='GreenTransBtn' id="1" onClick={registrarTrans}>COMPRAR</button></p>
