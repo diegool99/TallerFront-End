@@ -5,9 +5,9 @@ import GraficaMonedas from "./GraficaMonedas";
 
 const Graficas = () => {
   return (
-    <section className="app form">
+    <section className="ClassGraf">
         <acticle>
-        <GraficaCompras/>
+          <GraficaCompras/>
         </acticle>
         <acticle>
           <GraficaVentas/>
