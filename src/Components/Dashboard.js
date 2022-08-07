@@ -6,7 +6,6 @@ const Dashboard = () => {
   return (
     <div>
       <CrearTransaccion/>
-      <hr/>
       <ListadoTransacciones/>
       <hr/>
       <Inversiones/>

@@ -151,4 +151,46 @@ label:before {
 
 /*#endregion */
 
-  
+section.tableTrans{
+  width: auto;
+  height: 300px;
+  border-radius: 8px;
+  background: #242132;
+  overflow-x:auto;
+}
+
+section.tableTrans::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+table {
+  margin: 25px;
+  width: auto;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  position: relative;
+  color: #FEFCFF;
+}
+
+th, td {
+  padding: 5px;
+}
+
+thead{
+  position: sticky;
+  top: 0;
+  background: #1c1a27;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #242132;;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #2b273b;
+}
+
+tbody{
+  height: 200px;
+  overflow-y:scroll
+}
