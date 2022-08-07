@@ -14,10 +14,10 @@ const CrearTransaccion = () => {
 
   const monedaRef = useRef(0);
   const montoRef = useRef(0);
-  const [valorMoneda, setValorMoneda] = useState("$ 0.00");
+  const [valorMoneda, setValorMoneda] = useState("");
   const [monedas, setMonedas] = useState([]);
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
 
     let myHeaders = new Headers();

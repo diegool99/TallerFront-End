@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { guardarTransacciones } from "../../Features/transaccionesSlice";
 import { useDispatch, useSelector } from "react-redux";
-import Transaccion from "../Transaccion";
+import Transaccion from "./Transaccion";
 import '../../Styles/ListaTransacciones.css'
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
