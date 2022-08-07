@@ -4,7 +4,7 @@ import GraficaMonedas from "./GraficaMonedas";
 
 const Graficas = () => {
   return (
-    <section className="app form">
+<section className="ClassGraf">
       <article>
         <GraficaCompras />
       </article>

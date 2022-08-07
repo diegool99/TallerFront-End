@@ -10,7 +10,6 @@ const Dashboard = () => {
       <CrearTransaccion/>
       <ListadoTransacciones/>
       <Inversiones/>
-      <hr/>
       <Graficas/>
       <IAOperaciones/> 
     </div> 
