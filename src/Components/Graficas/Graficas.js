@@ -1,20 +1,19 @@
 import GraficaCompras from "./GraficaCompras";
 import GraficaVentas from "./GraficaVentas";
-import '../../Styles/Graficas.css';
 import GraficaMonedas from "./GraficaMonedas";
 
 const Graficas = () => {
   return (
-    <section className="ClassGraf">
-        <acticle>
-          <GraficaCompras/>
-        </acticle>
-        <acticle>
-          <GraficaVentas/>
-        </acticle>
-        <article>
-          <GraficaMonedas/>
-        </article>
+<section className="ClassGraf">
+      <article>
+        <GraficaCompras />
+      </article>
+      <article>
+        <GraficaVentas />
+      </article>
+      <article>
+        <GraficaMonedas />
+      </article>
     </section>
   )
 }

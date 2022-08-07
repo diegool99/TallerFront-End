@@ -37,7 +37,6 @@ const GraficaVentas = () => {
             });
         });
         setDatos(aux);
-        console.log(datos);
 
     }, [transacciones])
 

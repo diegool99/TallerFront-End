@@ -11,7 +11,7 @@ const Dashboard = () => {
       <ListadoTransacciones/>
       <Inversiones/>
       <Graficas/>
-      {/* <IAOperaciones/> */}
+      <IAOperaciones/> 
     </div> 
   )
 }

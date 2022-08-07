@@ -35,7 +35,6 @@ const GraficaMonedas = () => {
     useEffect(() => {
         let aux = [];
         aux = transacciones.filter(trans => trans.moneda == monedaSelect);
-        console.log(aux);
         setDatos(aux);
     }, [monedaSelect])
 
