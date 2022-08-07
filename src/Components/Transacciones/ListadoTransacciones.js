@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { guardarTransacciones } from "../Features/transaccionesSlice";
+import { guardarTransacciones } from "../../Features/transaccionesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Transaccion from "./Transaccion";
 

@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { agregarTransaccion } from "../Features/transaccionesSlice";
-import { guardarMonedas } from "../Features/monedasReducer";
+import { agregarTransaccion } from "../../Features/transaccionesSlice";
+import { guardarMonedas } from "../../Features/monedasReducer";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import '../Styles/CrearTransaccion.css'
-import Option from './Option';
+import '../../Styles/CrearTransaccion.css'
+import Option from '../Option';
 
 const CrearTransaccion = () => {
 
@@ -16,7 +16,6 @@ const CrearTransaccion = () => {
   const [valorMoneda, setValorMoneda] = useState("");
   const [monedas, setMonedas] = useState([]);
   const dispatch = useDispatch();
-  const transacciones = useSelector(state => state.transacciones.transacciones);
 
   useEffect(() => {
 
@@ -45,7 +44,7 @@ const CrearTransaccion = () => {
   const valorMonedaActual = e => {
     setValorMoneda("$ "+monedas.find(moneda => moneda.value == monedaRef.current.value).cotizacion);
   }
-  //#region Registrar usuario
+  //#region Registrar transaccion
 
    const registrarTrans = (e) => {
 

@@ -1,6 +1,7 @@
-import CrearTransaccion from "./CrearTransaccion"
-import Inversiones from "./Inversiones";
-import ListadoTransacciones from "./ListadoTransacciones";
+import Graficas from "./Graficas/Graficas";
+import CrearTransaccion from "./Transacciones/CrearTransaccion"
+import Inversiones from "./Transacciones/Inversiones";
+import ListadoTransacciones from "./Transacciones/ListadoTransacciones";
 
 const Dashboard = () => {
   return (
@@ -9,6 +10,8 @@ const Dashboard = () => {
       <ListadoTransacciones/>
       <hr/>
       <Inversiones/>
+      <hr/>
+      <Graficas/>
     </div> 
   )
 }
