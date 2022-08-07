@@ -12,7 +12,7 @@ const Dashboard = () => {
       <Inversiones/>
       <hr/>
       <Graficas/>
-      {/* <IAOperaciones/> */}
+      <IAOperaciones/> 
     </div> 
   )
 }

@@ -40,8 +40,6 @@ const GraficaCompras = () => {
             });
         });
         setDatos(aux);
-        console.log(datos);
-    
     }, [transacciones])
     
 

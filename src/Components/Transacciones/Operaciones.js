@@ -1,38 +1,32 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect,useState } from "react";
 
-const Operacion = ({moneda,tipo_operacion,cantidad,valor_actual}) => {
+const Operacion = ({ label,cotizacion,ultimaOperacion}) => {
 
-  const monedas = useSelector(state => state.monedas.monedas);
-  const transacciones = useSelector(state => state.transacciones.transacciones);
-  const [color, setColor] = useState({color:"#36d45b"});
+  const [color, setColor] = useState({ color: "#36d45b" });
+  const[color2,setColor2] = useState({color: "#36d45b"})
 
   const cambioColor = () => {
-    (tipo_operacion == 1) ? setColor({color:"#36d45b"}) : setColor({color:"#b42a2a"}) 
+    (ultimaOperacion.tipo_operacion == 1) ? setColor({ color: "#36d45b" }) : setColor({ color: "#b42a2a" })
   }
 
-  /* const executeFunctions = () => {
-    let aux = [];
-    let ultimo;
-    monedas.forEach(moneda => {
-        aux = transacciones.filter(transaccion => transaccion.moneda === moneda.id);
-        ultimo = aux[aux.length-1];
-        moneda.ultimaTrans = ultimo;
-    }); */
-
+  const cambioColorRecomendacion = () =>{
+    (ultimaOperacion.valor_actual > cotizacion) ? setColor2({color: "#36d45b"}) : setColor2({ color: "#b42a2a" })
+  }
 
   useEffect(() => {
     cambioColor();
-    executeFunctions();
-  }, [tipo_operacion])
+    cambioColorRecomendacion();
+  }, [ultimaOperacion.tipo_operacion]);
 
 
   return (
     <tr>
-        <td>{monedas.find(m => m.value == moneda).label}</td>
-        <td style={color}>{(tipo_operacion == 1) ? "Compra" : "Venta" }</td>
-        <td>{cantidad}</td>
-        <td>{valor_actual}</td>
+      <td>{label}</td>
+      <td style={color}>{(ultimaOperacion.tipo_operacion == 1) ? "Compra" : "Venta"}</td>
+      <td>{ultimaOperacion.cantidad}</td>
+      <td>{ultimaOperacion.valor_actual}</td>
+      <td>{cotizacion}</td>
+      <td style={color2}>{(ultimaOperacion.valor_actual > cotizacion) ? "Deberias Comprar" : "Deberias Vender"}</td>
     </tr>
   )
 }
