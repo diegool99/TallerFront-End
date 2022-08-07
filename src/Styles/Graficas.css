@@ -1,3 +1,13 @@
-article{
-    display: block;
+section.ClassGraf {
+    margin: 5px;
+ /*  width: auto; */
+  height: auto;
+  border-radius: 8px;
+  background: #171520;
+  color: #FEFCFF;
+
+}
+
+section.ClassGraf article{
+    margin: 10px;
 }
