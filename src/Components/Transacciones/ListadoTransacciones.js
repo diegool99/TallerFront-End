@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { guardarTransacciones } from "../Features/transaccionesSlice";
+import { guardarTransacciones } from "../../Features/transaccionesSlice";
 import { useDispatch, useSelector } from "react-redux";
-import Transaccion from "./Transaccion";
-
+import Transaccion from "../Transaccion";
+import '../../Styles/ListaTransacciones.css'
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -70,6 +70,7 @@ const ListadoTransacciones = () => {
   return (
     
     <section className="tableTrans">
+      <h1>Transacciones</h1>
       <table>
         <thead>
           <tr>

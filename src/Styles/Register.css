@@ -1,7 +1,7 @@
 .form {
   width: 340px;
   height: auto;
-  background: #242132;
+  background: #171520;
   border-radius: 8px;
   box-shadow: 0 0 40px -10px #d278ff;
   margin: auto;
@@ -18,9 +18,8 @@ h2 {
   font-weight: 600;
   margin: 10px 0;
   padding-bottom: 10px;
-  width: 180px;
+  width: auto;
   color: #FEFCFF;
-  border-bottom: 3px solid #746CFE;
 }
 
 input,

@@ -1,6 +1,8 @@
 section.dashTrans {
+  margin: 5px;
   width: 250px;
-  background: #242132;
+  height: 460px;
+  background: #171520;
   border-radius: 8px;
   padding: 15px 30px;
   box-sizing: border-box;
@@ -11,7 +13,7 @@ section.dashTrans {
 }
 
 label.dashTrans {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 h2.dashTrans {
@@ -96,7 +98,6 @@ label:before {
   top: 0;
   z-index: -1;
   border-radius: 4px;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5), 7px 7px 20px 0px rgba(0, 0, 0, .1), 4px 4px 5px 0px rgba(0, 0, 0, .1);
   transition: all 0.3s ease;
   background-color: #36d45b;
   right: 0;
@@ -146,51 +147,3 @@ label:before {
 }
 
 /*#endregion */
-
-/*#region AuxBtn =====================================================================================================*/
-
-/*#endregion */
-
-section.tableTrans{
-  width: auto;
-  height: 300px;
-  border-radius: 8px;
-  background: #242132;
-  overflow-x:auto;
-}
-
-section.tableTrans::-webkit-scrollbar {
-  -webkit-appearance: none;
-}
-
-table {
-  margin: 25px;
-  width: auto;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  position: relative;
-  color: #FEFCFF;
-}
-
-th, td {
-  padding: 5px;
-}
-
-thead{
-  position: sticky;
-  top: 0;
-  background: #1c1a27;
-}
-
-tbody tr:nth-child(odd) {
-  background-color: #242132;;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #2b273b;
-}
-
-tbody{
-  height: 200px;
-  overflow-y:scroll
-}

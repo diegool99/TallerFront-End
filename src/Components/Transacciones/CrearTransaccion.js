@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { agregarTransaccion } from "../Features/transaccionesSlice";
-import { guardarMonedas } from "../Features/monedasReducer";
+import { agregarTransaccion } from "../../Features/transaccionesSlice";
+import { guardarMonedas } from "../../Features/monedasReducer";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import '../Styles/CrearTransaccion.css'
-import Option from './Option';
+import '../../Styles/CrearTransaccion.css'
+import Option from './../Option';
 
 const CrearTransaccion = () => {
 
@@ -13,7 +13,7 @@ const CrearTransaccion = () => {
 
   const monedaRef = useRef(0);
   const montoRef = useRef(0);
-  const [valorMoneda, setValorMoneda] = useState("");
+  const [valorMoneda, setValorMoneda] = useState("$ 0.00");
   const [monedas, setMonedas] = useState([]);
   const dispatch = useDispatch();
   const transacciones = useSelector(state => state.transacciones.transacciones);
@@ -114,7 +114,7 @@ const CrearTransaccion = () => {
   return (
     <section className='dashTrans'>
       <article>
-        <label className='dashTransMoneda'>Moneda
+        <label className='dashTrans'>Moneda
           <select id="ChangeMoneda" className='dashTrans' defaultValue={'DEFAULT'} ref={monedaRef} onChange={valorMonedaActual}>
             <option value="DEFAULT" disabled key={"DEFAULT"}></option>
             {monedas.map((moneda, id) => <Option key={id} {...moneda} />)}
