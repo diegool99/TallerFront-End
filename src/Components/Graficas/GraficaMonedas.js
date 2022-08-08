@@ -46,7 +46,7 @@ const GraficaMonedas = () => {
 
     return (
         <section>
-            <label className='dashTransMoneda'>Moneda
+            <label className='dashTrans'>Moneda
                 <select id="ChangeMoneda" className='dashTrans' defaultValue={'DEFAULT'} ref={monedaRef} onChange={cambioMoneda}>
                     <option value="DEFAULT" disabled key={"DEFAULT"}></option>
                     {monedas.map((moneda, id) => <Option key={id} {...moneda} />)}

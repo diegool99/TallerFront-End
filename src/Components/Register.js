@@ -3,6 +3,8 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Option from './Option';
 import '../Styles/Register.css';
+import { useNavigate} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Register = () => {
 
@@ -14,6 +16,8 @@ const Register = () => {
   const [depto, setDepto] = useState();
   const [departamentos, setDeptos] = useState([]);
   const [ciudades, setCuidades] = useState([]);
+
+  let navigate = useNavigate();
 
   //#endregion
 
@@ -104,7 +108,7 @@ const Register = () => {
               style: {
                 background: '#242132'
               }
-            });
+            });navigate("/");
             break;
           case 409:
             toast.warn(result.mensaje, {
@@ -134,7 +138,7 @@ const Register = () => {
         <input id="RegisterUser" type="text" ref={userRef} />
       </label>
       <label >Contraseña
-        <input id="RegisterPass" type="text" ref={passRef} />
+        <input id="RegisterPass" type="password" ref={passRef} />
       </label>
       <label >Departamento
         <select id="RegisterDep" defaultValue={'DEFAULT'} ref={deptoRef} onChange={changeDepto}>
@@ -148,7 +152,7 @@ const Register = () => {
           {ciudades.map((ciudad, id) => <Option key={id} {...ciudad} />)}
         </select></label>
       <p><button className="GreenBtn" onClick={registrarUsuario}>Registrar</button></p>
-      <p><button className="AuxBtn">Volver a login</button></p>
+      <p><Link to="/"><button className="AuxBtn">Volver a login</button></Link></p>
       <ToastContainer />
     </section>
   )
