@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { useSelector,useDispatch } from "react-redux/es/exports";
 import { guardarCompras,guardarTotal,guardarVentas } from "../../Features/InvertidoReducer";
-import '../../Styles/CrearTransaccion.css'
-import '../../Styles/Inversiones.css'
+
 
 const Inversiones = () => {
 

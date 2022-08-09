@@ -2,19 +2,19 @@ import { useEffect } from "react";
 import { guardarTransacciones } from "../../Features/transaccionesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Transaccion from "./Transaccion";
-import '../../Styles/ListaTransacciones.css'
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 const ListadoTransacciones = () => {
 
   const token = useSelector(state => state.apiKey.apiKey);
+  const idUser = useSelector(state => state.apiKey.id);
   const dispatch = useDispatch();
   const transacciones = useSelector(state => state.transacciones.transacciones);
 
   //CARGO LAS TRANSACCIONES POR PRIMERA VEZ
 
-  useEffect(() => {
+  useEffect(async () => {
     let myHeaders = new Headers();
     myHeaders.append("apikey", token);
     myHeaders.append("Content-Type", "application/json");
@@ -26,7 +26,7 @@ const ListadoTransacciones = () => {
     };
 
     try {
-      fetch("https://crypto.develotion.com//transacciones.php?idUsuario=2", requestOptions)
+      await fetch(`https://crypto.develotion.com//transacciones.php?idUsuario=${idUser}`, requestOptions)
       .then(response => response.json())
       .then(result => {
         switch (result.codigo) {

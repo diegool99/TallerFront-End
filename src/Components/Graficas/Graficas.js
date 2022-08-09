@@ -1,7 +1,6 @@
 import GraficaCompras from "./GraficaCompras";
 import GraficaVentas from "./GraficaVentas";
 import GraficaMonedas from "./GraficaMonedas";
-import '../../Styles/Grafica.css'
 
 const Graficas = () => {
   return (

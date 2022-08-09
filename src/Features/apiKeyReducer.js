@@ -1,18 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    apiKey: "331aabd19922933bbf6441f5f0d8f64e"
+    id: "",
+    user: "",
+    apiKey: ""
 }
 
 export const apiKeyReducer = createSlice({
     name: 'apiKey',
     initialState,
-    reducers:{
-        token: (state) => {
-            state.apiKey = "331aabd19922933bbf6441f5f0d8f64e";
+    reducers: {
+        setToken: (state, action) => {
+            state.apiKey = action.payload;
+        },
+        setIdUser: (state, action) => {
+            state.id = action.payload;
+        },
+        setUserName: (state, action) => {
+            state.user = action.payload;
         }
     }
 });
 
-export const{token} = apiKeyReducer.actions;
+export const { setToken, setIdUser, setUserName } = apiKeyReducer.actions;
 export default apiKeyReducer.reducer;

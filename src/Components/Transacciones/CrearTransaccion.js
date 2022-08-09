@@ -4,7 +4,6 @@ import { agregarTransaccion } from "../../Features/transaccionesSlice";
 import { guardarMonedas } from "../../Features/monedasReducer";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import '../../Styles/CrearTransaccion.css'
 import Option from '../Option';
 
 
@@ -20,25 +19,29 @@ const CrearTransaccion = () => {
 
   useEffect(() => {
 
-    let myHeaders = new Headers();
-    myHeaders.append("apiKey", token);
-    myHeaders.append("Content-Type", "application/json");
+    async function traerMonedas() {
+      let myHeaders = new Headers();
+      myHeaders.append("apiKey", token);
+      console.log(token);
+      myHeaders.append("Content-Type", "application/json");
 
-    let requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
-    };
+      let requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+      };
 
-    fetch("https://crypto.develotion.com/monedas.php", requestOptions)
-      .then(response => response.json())
-      .then(result => {
-        let aux = result.monedas.map(moneda => {
-          return { value: moneda.id, label: moneda.nombre, cotizacion: moneda.cotizacion }
+      await fetch("https://crypto.develotion.com/monedas.php", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          let aux = result.monedas.map(moneda => {
+            return { value: moneda.id, label: moneda.nombre, cotizacion: moneda.cotizacion }
+          });
+          setMonedas(aux);
+          console.log(aux)
+          dispatch(guardarMonedas(aux));
         });
-        setMonedas(aux);
-        dispatch(guardarMonedas(aux));
-      })
-      .catch(error => console.log('error', error));
+    }
+    traerMonedas();
   }, []);
 
   //#endregion

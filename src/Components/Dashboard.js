@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useNavigate} from "react-router-dom";
+import { useSelector } from 'react-redux';
 import Graficas from "./Graficas/Graficas";
 import CrearTransaccion from "./Transacciones/CrearTransaccion";
 import IAOperaciones from "./Transacciones/IAOperaciones";
@@ -8,27 +10,18 @@ import GraficaCompras from "./Graficas/GraficaCompras";
 import GraficaVentas from "./Graficas/GraficaVentas";
 import GraficaMonedas from "./Graficas/GraficaMonedas";
 import Header from "./Header";
-import '../Styles/Grafica.css';
 
 
 const Dashboard = () => {
 
-  const userInitial = {
-    id: "",
-    user: "",
-    apiKey: ""
-  }
+  const token = useSelector(state => state.apiKey.apiKey);
+  let navigate = useNavigate();
 
-  const [usuarioLogeado, setUsuarioLogeado] = useState(userInitial);
-
-  useEffect(() => {
-    if(localStorage.getItem("user") != null){
-      setUsuarioLogeado(localStorage.getItem("user"));
-    }else{
-      console.log("no esta registrado");
-    }
-  });
-  
+  useEffect(()=>{
+    if(token == null || token == ""){
+      navigate("/");
+    }  
+  },[token])
 
   return (
     <div className="container">

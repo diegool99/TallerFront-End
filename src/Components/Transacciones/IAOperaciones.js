@@ -18,7 +18,6 @@ const IAOperaciones = () => {
         ultimaOperacion: aux2[aux2.length-1]
       });
     });
-    console.log(aux);
     setUltimaTrans(aux);
 
   }, [transacciones])

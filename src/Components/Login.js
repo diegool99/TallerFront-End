@@ -4,6 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../Styles/Login.css';
 import { useNavigate} from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setIdUser, setToken, setUserName } from "../Features/apiKeyReducer";
 
 const Login = () => {
 
@@ -12,6 +14,7 @@ const Login = () => {
   const [btnStyle, setbtnStyle] = useState('btnactive');
 
   let navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const habilitarBoton = e => {
     let userNew = user.current.value;
@@ -51,9 +54,11 @@ const Login = () => {
             let usuarioLogeado = {
               id: result.id,
               user: userNew,
-              token: result.apiKey
+              apiKey: result.apiKey
             }
-            localStorage.setItem("user",usuarioLogeado);
+            dispatch(setToken(usuarioLogeado.apiKey));
+            dispatch(setIdUser(usuarioLogeado.id));
+            dispatch(setUserName(usuarioLogeado.user));
             toast.success("Se a iniciado sesión correctamente", {
               position: "bottom-center",
               autoClose: 5000,
