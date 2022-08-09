@@ -16,7 +16,7 @@ const Operacion = ({ label,cotizacion,ultimaOperacion}) => {
   useEffect(() => {
     cambioColor();
     cambioColorRecomendacion();
-  }, [ultimaOperacion.tipo_operacion]);
+  });
 
 
   return (
