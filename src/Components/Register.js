@@ -93,6 +93,12 @@ const Register = () => {
       .then(result => {
         switch (result.codigo) {
           case 200:
+            let usuarioLogeado = {
+              id: result.id,
+              user: userRef.current.value,
+              token: result.apiKey
+            }
+            localStorage.setItem("user",usuarioLogeado);
             toast.success(result.mensaje, {
               position: "bottom-center",
               autoClose: 5000,

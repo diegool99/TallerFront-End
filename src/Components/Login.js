@@ -28,8 +28,8 @@ const Login = () => {
     myHeaders.append("Content-Type", "application/json");
 
     let raw = JSON.stringify({
-      "usuario": "crypto",
-      "password": "crypto"
+      "usuario": userNew,
+      "password": passNew
     });
 
     let requestOptions = {
