@@ -34,8 +34,8 @@ const Login = () => {
     myHeaders.append("Content-Type", "application/json");
 
     let raw = JSON.stringify({
-      "usuario": "crypto",
-      "password": "crypto"
+      "usuario": userNew,
+      "password": passNew
     });
 
     let requestOptions = {
@@ -50,7 +50,6 @@ const Login = () => {
       .then(result => {
         switch (result.codigo) {
           case 200:
-            console.log(result.id);
             dispatch(guardarApiKey(result.apiKey));
             dispatch(guardarId(result.id));
             /* let usuarioLogeado = {

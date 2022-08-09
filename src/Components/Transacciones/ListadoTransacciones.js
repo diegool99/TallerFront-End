@@ -10,6 +10,7 @@ const ListadoTransacciones = () => {
 
 
   const apiKey = useSelector(state => state.apiKey.apiKey);
+  const idUser = useSelector(state => state.apiKey.id);
   const dispatch = useDispatch();
   const transacciones = useSelector(state => state.transacciones.transacciones);
 
@@ -26,8 +27,10 @@ const ListadoTransacciones = () => {
       redirect: 'follow'
     };
 
+    let url = `https://crypto.develotion.com//transacciones.php?idUsuario=${idUser}`;
     try {
-      fetch('https://crypto.develotion.com//transacciones.php?idUsuario=2', requestOptions)
+
+      fetch(url, requestOptions)
         .then(response => response.json())
         .then(result => {
           switch (result.codigo) {
@@ -82,7 +85,12 @@ const ListadoTransacciones = () => {
           </tr>
         </thead>
         <tbody>
-          {transacciones.map(transaccion => <Transaccion key={transaccion.id} {...transaccion} />)}
+          {transacciones.map(transaccion =>{
+            if(transaccion != undefined){
+              return <Transaccion key={transaccion.id} {...transaccion}/>
+            }
+            
+          })}
         </tbody>
       </table>
       <ToastContainer />

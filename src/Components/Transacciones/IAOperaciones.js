@@ -18,7 +18,6 @@ const IAOperaciones = () => {
         ultimaOperacion: aux2[aux2.length-1]
       });
     });
-    console.log(aux);
     setUltimaTrans(aux);
 
   }, [transacciones])
@@ -38,7 +37,12 @@ const IAOperaciones = () => {
           </tr>
         </thead>
         <tbody>
-          {ultimaTrans.map((trans,i) => <Operaciones key={i} {...trans} />)}
+          {ultimaTrans.map((trans,i) => {
+            if(trans.ultimaOperacion != undefined){
+              return <Operaciones key={i} {...trans}/>
+            }
+          }
+          )}
         </tbody>
       </table>
     </section>

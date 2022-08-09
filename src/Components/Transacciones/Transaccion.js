@@ -15,7 +15,7 @@ const Transaccion = ({moneda,tipo_operacion,cantidad,valor_actual}) => {
 
   return (
     <tr>
-        <td>{monedas.find(m => m.value == moneda).label}</td>
+        <td>{(monedas.find(m => m.value == moneda) != undefined) ? monedas.find(m => m.value == moneda).label : ""}</td>
         <td style={color}>{(tipo_operacion == 1) ? "Compra" : "Venta" }</td>
         <td>{cantidad}</td>
         <td>{valor_actual}</td>
