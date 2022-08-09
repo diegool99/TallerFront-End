@@ -1,15 +1,14 @@
 import { useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import '../Styles/Login.css';
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Login = () => {
 
   const user = useRef(null);
   const pass = useRef(null);
-  const [btnStyle, setbtnStyle] = useState('btnactive');
+  const [isDisabled, setDisabled] = useState(true);
 
   let navigate = useNavigate();
 
@@ -17,10 +16,10 @@ const Login = () => {
     let userNew = user.current.value;
     let passNew = pass.current.value;
 
-    if (userNew !== '' || passNew !== '') {
-      setbtnStyle('GreenBtn');
+    if (userNew !== '' && passNew !== '') {
+      setDisabled(false);
     } else {
-      setbtnStyle('btnactive');
+      setDisabled(true);
     }
   }
 
@@ -53,7 +52,7 @@ const Login = () => {
               user: userNew,
               token: result.apiKey
             }
-            localStorage.setItem("user",usuarioLogeado);
+            localStorage.setItem("user", usuarioLogeado);
             toast.success("Se a iniciado sesión correctamente", {
               position: "bottom-center",
               autoClose: 5000,
@@ -62,13 +61,13 @@ const Login = () => {
               pauseOnHover: true,
               draggable: true,
               progress: undefined,
-              style:{
+              style: {
                 background: '#242132'
               }
 
             });
             navigate("/dashboard");
-            case 409:
+          case 409:
             toast.warn(result.mensaje, {
               position: "bottom-center",
               autoClose: 5000,
@@ -77,7 +76,7 @@ const Login = () => {
               pauseOnHover: true,
               draggable: true,
               progress: undefined,
-              style:{
+              style: {
                 background: '#242132'
               }
             });
@@ -88,17 +87,20 @@ const Login = () => {
   }
 
   return (
-    <section className='App form' >
-      <h2>Login</h2>
-      <label >Usuario
-        <input id="LoginUser" type="text" ref={user} onChange={habilitarBoton} />
-      </label>
-      <label >Contraseña
-        <input id="LoginPass" type="password" ref={pass} onChange={habilitarBoton} />
-      </label>
-      <p><button className={btnStyle} onClick={iniciarSesion}>Ingresar</button></p>
-      <p><Link to="/register"><button className="AuxBtn">Quiero registrarme</button></Link></p>
-      <ToastContainer/>
+    <section className='lobby'>
+      <article>
+        <h2>Login</h2>
+        <label >Usuario
+          <input id="LoginUser" type="text" ref={user} onChange={habilitarBoton} />
+        </label>
+        <label >Contraseña
+          <input id="LoginPass" type="password" ref={pass} onChange={habilitarBoton} />
+        </label>
+        <p><button className="GreenTransBtn" disabled={isDisabled} onClick={iniciarSesion}>Ingresar</button></p>
+        <p><Link to="/register"><button className="AuxBtn">Quiero registrarme</button></Link></p>
+
+      </article>
+      <ToastContainer />
     </section>
   )
 }

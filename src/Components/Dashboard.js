@@ -6,21 +6,19 @@ import GraficaCompras from "./Graficas/GraficaCompras";
 import GraficaVentas from "./Graficas/GraficaVentas";
 import GraficaMonedas from "./Graficas/GraficaMonedas";
 import Header from "./Header";
-import '../Styles/Grafica.css';
 
 
 const Dashboard = () => {
   return (
     <div className="container">
-        <Header />
-        <ListadoTransacciones />
-        <CrearTransaccion />
-        <Inversiones />
-        <IAOperaciones />
-        <GraficaCompras />
-        <GraficaVentas />
-        <GraficaMonedas />
-
+      <Header />
+      <ListadoTransacciones />
+      <CrearTransaccion />
+      <Inversiones />
+      <IAOperaciones />
+      <GraficaCompras />
+      <GraficaVentas />
+      <GraficaMonedas />
     </div>
   )
 }

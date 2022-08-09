@@ -16,11 +16,6 @@ a:link {
   text-decoration: none;
 }
 
-/* HEADER */
-
-
-
-
 /*#region DASHBOARD*/
 
 /*#region General*/
@@ -61,10 +56,13 @@ a:link {
 }
 
 .header a {
-  margin: auto;
   width: 25px;
   grid-column: span 1;
   margin: auto;
+}
+
+.header img {
+  margin-top: 6px;
 }
 
 .header h1 {
@@ -81,7 +79,8 @@ h2 {
   padding-bottom: 7px;
 }
 
-input,select {
+input,
+select {
   width: 100%;
   margin: 0 px auto;
   margin-bottom: 10px;
@@ -108,10 +107,10 @@ input {
 label:before {
   content: attr(type);
   display: block;
-
   font-size: 14px;
   color: #242132;
 }
+
 /*#endregion*/
 /*#region Botones*/
 
@@ -153,6 +152,24 @@ label:before {
   top: 2px;
 }
 
+.GreenTransBtn:disabled {
+  background-color: gray;
+  top: 2px;
+}
+
+.GreenTransBtn:disabled:after {
+  background-color: rgb(58, 58, 58);
+}
+
+.RedTransBtn:disabled {
+  background-color: gray;
+  top: 2px;
+}
+
+.RedTransBtn:disabled::after {
+  background-color: rgb(58, 58, 58);
+}
+
 .RedTransBtn {
   margin-top: 10px;
   width: 100%;
@@ -192,20 +209,35 @@ label:before {
   top: 2px;
 }
 
+.AuxBtn {
+  margin-top: 10px;
+  width: 100%;
+  height: 35px;
+  color: #746CFE;
+  background: #736cfe00;
+  font-weight: 400;
+  font-size: 13px;
+  cursor: pointer;
+  outline: none;
+  border-radius: 4px;
+  border: none;
+}
+
 /*#endregion*/
 /*#region TablasGeneral*/
 
-table{
+table {
   width: 100%;
   font-size: 1em;
   text-align: center;
 }
 
-th, td {
+th,
+td {
   padding: 2px;
 }
 
-thead{
+thead {
   position: sticky;
   top: 0;
   background: #14121b;
@@ -216,7 +248,8 @@ tbody tr:nth-child(odd) {
 }
 
 tbody tr:nth-child(even) {
-  background-color: #171520;;
+  background-color: #171520;
+  ;
 }
 
 /*#endregion*/
@@ -224,8 +257,8 @@ tbody tr:nth-child(even) {
 
 .container .listaTrans {
   grid-column: span 4;
-  max-height: 18em;
-  overflow-x:auto;
+  height: 18em;
+  overflow-x: auto;
 }
 
 .listaTrans::-webkit-scrollbar {
@@ -252,7 +285,11 @@ tbody tr:nth-child(even) {
   padding-bottom: 20px;
 }
 
-.inversiones label > h2 {
+h2.hijo {
+  padding-bottom: 10px;
+}
+
+.inversiones label>h2 {
   font-weight: 550;
 }
 
@@ -295,3 +332,54 @@ tbody tr:nth-child(even) {
 /*#endregion*/
 
 /*#endregion*/
+
+/*#region REGISTRO Y LOGIN*/
+
+.lobby {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+}
+
+.lobby article {
+  padding: 25px 20px;
+  padding-bottom: 10px;
+  background: #171520;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-49%, -49%);
+  width: 300px;
+  border-radius: 10px;
+}
+
+.lobby input,.lobby
+select {
+  padding-top: 10px;
+  box-sizing: border-box;
+  background: none;
+  outline: none;
+  resize: none;
+  border: 0;
+  font-weight: 400;
+  transition: all 0.3s;
+  border-bottom: 2px solid #746CFE;
+  color: #FEFCFF;
+}
+
+.lobby input:focus {
+  border-bottom: 2px solid #746CFE;
+  padding: 20px 0;
+}
+
+.lobby h2{
+  padding-bottom: 15px;
+}
+
+.lobby button {
+  margin-top: 10px;
+  height: 45px;
+}
+
+/*#endregion */
