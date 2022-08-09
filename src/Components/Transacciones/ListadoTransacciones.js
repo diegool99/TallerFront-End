@@ -5,9 +5,11 @@ import Transaccion from "./Transaccion";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const ListadoTransacciones = () => {
 
-  const token = useSelector(state => state.apiKey.apiKey);
+
+  const apiKey = useSelector(state => state.apiKey.apiKey);
   const dispatch = useDispatch();
   const transacciones = useSelector(state => state.transacciones.transacciones);
 
@@ -15,7 +17,7 @@ const ListadoTransacciones = () => {
 
   useEffect(() => {
     let myHeaders = new Headers();
-    myHeaders.append("apikey", token);
+    myHeaders.append("apikey", apiKey);
     myHeaders.append("Content-Type", "application/json");
 
     let requestOptions = {
@@ -25,13 +27,13 @@ const ListadoTransacciones = () => {
     };
 
     try {
-      fetch("https://crypto.develotion.com//transacciones.php?idUsuario=2", requestOptions)
-      .then(response => response.json())
-      .then(result => {
-        switch (result.codigo) {
-          case 200:
-            dispatch(guardarTransacciones(result.transacciones));
-            break;
+      fetch('https://crypto.develotion.com//transacciones.php?idUsuario=2', requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          switch (result.codigo) {
+            case 200:
+              dispatch(guardarTransacciones(result.transacciones));
+              break;
             default:
               toast.warn(result.mensaje, {
                 position: "bottom-center",
@@ -41,12 +43,12 @@ const ListadoTransacciones = () => {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                style:{
+                style: {
                   background: '#242132'
                 }
               });
-        }
-      });
+          }
+        });
     } catch (error) {
       toast.warn(error.message, {
         position: "bottom-center",
@@ -56,18 +58,18 @@ const ListadoTransacciones = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        style:{
+        style: {
           background: '#242132'
         }
       });
     }
 
-    
+
   }, []);
 
 
   return (
-    
+
     <section className="listaTrans">
       <h2>Transacciones</h2>
       <table>
@@ -80,10 +82,10 @@ const ListadoTransacciones = () => {
           </tr>
         </thead>
         <tbody>
-          {transacciones.map(transaccion => <Transaccion key={transaccion.id} {...transaccion}/>)}
+          {transacciones.map(transaccion => <Transaccion key={transaccion.id} {...transaccion} />)}
         </tbody>
       </table>
-      <ToastContainer/>
+      <ToastContainer />
     </section>
   )
 }

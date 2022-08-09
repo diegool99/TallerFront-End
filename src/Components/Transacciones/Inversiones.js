@@ -1,12 +1,15 @@
 import { useEffect } from "react";
 import { useSelector,useDispatch } from "react-redux/es/exports";
 import { guardarCompras,guardarTotal,guardarVentas } from "../../Features/InvertidoReducer";
+import { useNavigate } from "react-router-dom";
 
 const Inversiones = () => {
 
     const transacciones = useSelector(state => state.transacciones.transacciones);
     const inversiones = useSelector(state => state.invertido);
+    const apiKey = useSelector(state => state.apiKey.apiKey);
     const dispatch = useDispatch();
+    let navigate = useNavigate();
 
     const calcularInversiones = () =>{
         let totalCompras = 0;
@@ -22,6 +25,12 @@ const Inversiones = () => {
         dispatch(guardarVentas(totalVentas));
         dispatch(guardarTotal(totalCompras-totalVentas));
     }
+
+    useEffect(() => {
+        if (apiKey == "" || apiKey == null) {
+          navigate("/");
+        }
+      }, [apiKey])
 
     useEffect(() => {
         calcularInversiones();
