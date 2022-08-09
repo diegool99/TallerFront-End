@@ -1,5 +1,5 @@
-.form {
-  width: 50%;
+/* .form {
+  width: 25%;
   height: auto;
   background: #171520;
   border-radius: 8px;
@@ -57,10 +57,6 @@ label:before {
   color: #242132;
 }
 
-
-
-/*#region GreenBtn =====================================================================================================*/
-
 .GreenBtn {
   margin: 40px auto;
   margin-bottom: 10px;
@@ -107,10 +103,6 @@ label:before {
   top: 2px;
 }
 
-/*#endregion */
-
-/*#region AuxBtn =====================================================================================================*/
-
 .AuxBtn {
   margin: auto;
   padding: 6px 26px;
@@ -132,5 +124,4 @@ label:before {
   text-align: center;
 }
 
-
-/*#endregion */
+ */

@@ -1,4 +1,4 @@
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux/es/exports";
 import {
     Chart as ChartJS,
@@ -8,26 +8,26 @@ import {
     Title,
     Tooltip,
     Legend,
-  } from 'chart.js';
-  import { Bar } from 'react-chartjs-2';
-  
-  ChartJS.register(
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+
+ChartJS.register(
     CategoryScale,
     LinearScale,
     BarElement,
     Title,
     Tooltip,
     Legend
-  );
-  
-  
+);
+
+
 
 
 const GraficaCompras = () => {
 
     const transacciones = useSelector(state => state.transacciones.transacciones);
     const monedas = useSelector(state => state.monedas.monedas);
-    const [datos,setDatos] = useState([]);
+    const [datos, setDatos] = useState([]);
 
     useEffect(() => {
         let aux = [];
@@ -41,39 +41,43 @@ const GraficaCompras = () => {
         });
         setDatos(aux);
     }, [transacciones])
-    
+
 
 
     return (
-        <Bar options={
-            {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    title: {
-                        display: true,
-                        text: 'Compras por moneda',
-                    },
-                }
-            }} data={{
-                labels: datos.map(moneda => moneda.label),
-                datasets: [
+        <section className="grCompra">
+            <article>
+                <Bar options={
                     {
-                        label: 'Compra',
-                        data: datos.map(moneda => {
-                            let suma = 0;
-                            moneda.operaciones.forEach(operacion => {
-                                suma+= operacion.valor_actual * operacion.cantidad;
-                            });
-                            return suma;
-                        }),
-                        backgroundColor: 'green',
-                    }
-                ]
-            }}
-            />
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Compras por moneda',
+                            },
+                        }
+                    }} data={{
+                        labels: datos.map(moneda => moneda.label),
+                        datasets: [
+                            {
+                                label: 'Compra',
+                                data: datos.map(moneda => {
+                                    let suma = 0;
+                                    moneda.operaciones.forEach(operacion => {
+                                        suma += operacion.valor_actual * operacion.cantidad;
+                                    });
+                                    return suma;
+                                }),
+                                backgroundColor: 'green',
+                            }
+                        ]
+                    }}
+                />
+            </article>
+        </section>
     )
 }
 

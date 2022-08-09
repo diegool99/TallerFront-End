@@ -69,14 +69,14 @@ const ListadoTransacciones = () => {
 
   return (
     
-    <section className="tableTrans">
-      <h1>Transacciones</h1>
+    <section className="listaTrans">
+      <h2>Transacciones</h2>
       <table>
         <thead>
           <tr>
-            <td>Moneda</td>
-            <td>Tipo de transaccion</td>
-            <td>Cantidad</td>
+            <td width={"245px"}>Moneda</td>
+            <td width={"300px"}>Tipo de transaccion</td>
+            <td width={"215px"}>Cantidad</td>
             <td>Monto</td>
           </tr>
         </thead>

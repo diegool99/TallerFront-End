@@ -2,12 +2,16 @@ import { useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import '../Styles/Login.css';
+import { useNavigate} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
 
   const user = useRef(null);
   const pass = useRef(null);
   const [btnStyle, setbtnStyle] = useState('btnactive');
+
+  let navigate = useNavigate();
 
   const habilitarBoton = e => {
     let userNew = user.current.value;
@@ -61,7 +65,9 @@ const Login = () => {
               style:{
                 background: '#242132'
               }
+
             });
+            navigate("/dashboard");
             case 409:
             toast.warn(result.mensaje, {
               position: "bottom-center",
@@ -91,7 +97,7 @@ const Login = () => {
         <input id="LoginPass" type="password" ref={pass} onChange={habilitarBoton} />
       </label>
       <p><button className={btnStyle} onClick={iniciarSesion}>Ingresar</button></p>
-      <p><button className="AuxBtn">Quiero registrarme</button></p>
+      <p><Link to="/register"><button className="AuxBtn">Quiero registrarme</button></Link></p>
       <ToastContainer/>
     </section>
   )
