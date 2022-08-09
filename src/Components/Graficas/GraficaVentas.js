@@ -43,35 +43,39 @@ const GraficaVentas = () => {
 
 
     return (
-        <Bar options={
-            {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    title: {
-                        display: true,
-                        text: 'Ventas por moneda',
-                    },
-                }
-            }} data={{
-                labels: datos.map(moneda => moneda.label),
-                datasets: [
+        <section className="grVenta">
+            <article>
+                <Bar options={
                     {
-                        label: 'Ventas',
-                        data: datos.map(moneda => {
-                            let suma = 0;
-                            moneda.operaciones.forEach(operacion => {
-                                suma += operacion.valor_actual * operacion.cantidad;
-                            });
-                            return suma;
-                        }),
-                        backgroundColor: 'red',
-                    }
-                ]
-            }}
-        />
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Ventas por moneda',
+                            },
+                        }
+                    }} data={{
+                        labels: datos.map(moneda => moneda.label),
+                        datasets: [
+                            {
+                                label: 'Ventas',
+                                data: datos.map(moneda => {
+                                    let suma = 0;
+                                    moneda.operaciones.forEach(operacion => {
+                                        suma += operacion.valor_actual * operacion.cantidad;
+                                    });
+                                    return suma;
+                                }),
+                                backgroundColor: 'red',
+                            }
+                        ]
+                    }}
+                />
+            </article>
+        </section>
     )
 }
 

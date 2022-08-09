@@ -30,16 +30,16 @@ const Inversiones = () => {
     })
 
     return (
-        <section className="Classinversiones">
-            <h1>Detalle de inversiones</h1>
+        <section className="inversiones">
+            <h2>Inversiones</h2>
             <label>Monto total en compras
-                <h2 style={{color: 'green'}}>$ {inversiones.compras}</h2>
+                <h2 style={{color: '#36d45b'}}>$ {inversiones.compras}</h2>
             </label>
             <label>Monto total en ventas
-                <h2 style={{color: 'red'}}>$ {-inversiones.ventas}</h2>
+                <h2 style={{color: '#b42a2a'}}>$ {-inversiones.ventas}</h2>
             </label>
             <label>Monto total invertido
-                <h2 style={{color: (inversiones.total > 0)? 'green' : 'red'}}>$ {inversiones.total}</h2>
+                <h2 style={{color: (inversiones.total > 0)? '#36d45b' : '#b42a2a'}}>$ {inversiones.total}</h2>
             </label>
         </section>
     )

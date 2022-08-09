@@ -38,43 +38,45 @@ const GraficaMonedas = () => {
         setDatos(aux);
     }, [monedaSelect])
 
-    const cambioMoneda = e =>{
+    const cambioMoneda = e => {
         setMonedaSelect(monedaRef.current.value)
     }
 
 
 
     return (
-        <section>
-            <label className='dashTransMoneda'>Moneda
-                <select id="ChangeMoneda" className='dashTrans' defaultValue={'DEFAULT'} ref={monedaRef} onChange={cambioMoneda}>
-                    <option value="DEFAULT" disabled key={"DEFAULT"}></option>
-                    {monedas.map((moneda, id) => <Option key={id} {...moneda} />)}
-                </select>
-            </label>
-            <Bar options={
-                {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        title: {
-                            display: true,
-                            text: 'Compras por moneda',
-                        },
-                    }
-                }} data={{
-                    labels: datos.map(trans => trans.id),
-                    datasets: [
-                        {
-                            label: 'Compra',
-                            data: datos.map(trans => trans.valor_actual),
-                            backgroundColor: 'green',
+        <section className="grMoneda">
+            <article>
+                <label className='dashTrans'>Moneda
+                    <select id="ChangeMoneda" className='dashTrans' defaultValue={'DEFAULT'} ref={monedaRef} onChange={cambioMoneda}>
+                        <option value="DEFAULT" disabled key={"DEFAULT"}></option>
+                        {monedas.map((moneda, id) => <Option key={id} {...moneda} />)}
+                    </select>
+                </label>
+                <Bar options={
+                    {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Compras por moneda',
+                            },
                         }
-                    ]
-                }}
-            />
+                    }} data={{
+                        labels: datos.map(trans => trans.id),
+                        datasets: [
+                            {
+                                label: 'Compra',
+                                data: datos.map(trans => trans.valor_actual),
+                                backgroundColor: 'green',
+                            }
+                        ]
+                    }}
+                />
+            </article>
         </section>
     )
 }
