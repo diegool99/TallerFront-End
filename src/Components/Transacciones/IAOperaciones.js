@@ -24,14 +24,14 @@ const IAOperaciones = () => {
   }, [transacciones])
 
   return (
-    <section className="tableTrans">
-      <h1>IA Operaciones</h1>
+    <section className="iAOperaciones">
+      <h2>IA Operaciones</h2>
       <table>
         <thead>
           <tr>
-            <td>Moneda</td>
-            <td>Ultima transaccion</td>
-            <td>Cantidad comprada</td>
+            <td width={"245px"}>Moneda</td>
+            <td width={"300px"}>Ultima transaccion</td>
+            <td width={"215px"}>Cantidad comprada</td>
             <td>Cotizacion comprada</td>
             <td>Cotizacion actual</td>
             <td>Recomendacion</td>

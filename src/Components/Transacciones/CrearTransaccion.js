@@ -17,7 +17,7 @@ const CrearTransaccion = () => {
   const [valorMoneda, setValorMoneda] = useState("");
   const [monedas, setMonedas] = useState([]);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
 
     let myHeaders = new Headers();
@@ -43,11 +43,11 @@ const CrearTransaccion = () => {
 
   //#endregion
   const valorMonedaActual = e => {
-    setValorMoneda("$ "+monedas.find(moneda => moneda.value == monedaRef.current.value).cotizacion);
+    setValorMoneda("$ " + monedas.find(moneda => moneda.value == monedaRef.current.value).cotizacion);
   }
   //#region Registrar transaccion
 
-   const registrarTrans = (e) => {
+  const registrarTrans = (e) => {
 
     let cotizacion = monedas.find(moneda => moneda.value == monedaRef.current.value);
 
@@ -112,28 +112,29 @@ const CrearTransaccion = () => {
   //#endregion
 
   return (
-    <section className='dashTrans'>
+    <section>
       <article>
-        <label className='dashTrans'>Moneda
-          <select id="ChangeMoneda" className='dashTrans' defaultValue={'DEFAULT'} ref={monedaRef} onChange={valorMonedaActual}>
-            <option value="DEFAULT" disabled key={"DEFAULT"}></option>
+        <h2>Mercado</h2>
+        <label>
+          <select id="ChangeMoneda" defaultValue={'DEFAULT'} ref={monedaRef} onChange={valorMonedaActual}>
+            <option value="DEFAULT" disabled key={"DEFAULT"}>Moneda</option>
             {monedas.map((moneda, id) => <Option key={id} {...moneda} />)}
           </select>
         </label>
       </article>
       <article>
-        <label className='dashTrans'>Valor actual</label>
-        <h2 className='dashTrans'>{valorMoneda}</h2>
+        <label >Valor actual</label>
+        <h2 >{valorMoneda}</h2>
       </article>
       <article>
-        <label className='dashTrans'>Unidades</label>
-        <input className='dashTrans' min="0" step="1" ref={montoRef} type='number'></input>
+        <label >Unidades</label>
+        <input min="0" step="1" ref={montoRef} type='number'></input>
       </article>
       <article>
         <p><button className='GreenTransBtn' id="1" onClick={registrarTrans}>COMPRAR</button></p>
         <p><button className='RedTransBtn' id="2" onClick={registrarTrans}>VENDER</button></p>
       </article>
-      <ToastContainer/>
+      <ToastContainer />
     </section>
   )
 }

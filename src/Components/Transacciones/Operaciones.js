@@ -3,7 +3,7 @@ import { useEffect,useState } from "react";
 const Operacion = ({ label,cotizacion,ultimaOperacion}) => {
 
   const [color, setColor] = useState({ color: "#36d45b" });
-  const[color2,setColor2] = useState({color: "#36d45b"})
+  const[color2,setColor2] = useState({ color: "#36d45b"})
 
   const cambioColor = () => {
     (ultimaOperacion.tipo_operacion == 1) ? setColor({ color: "#36d45b" }) : setColor({ color: "#b42a2a" })
@@ -26,7 +26,7 @@ const Operacion = ({ label,cotizacion,ultimaOperacion}) => {
       <td>{ultimaOperacion.cantidad}</td>
       <td>{ultimaOperacion.valor_actual}</td>
       <td>{cotizacion}</td>
-      <td style={color2}>{(ultimaOperacion.valor_actual > cotizacion) ? "Deberias Comprar" : "Deberias Vender"}</td>
+      <td style={color2}>{(ultimaOperacion.valor_actual > cotizacion) ? "Comprar" : "Vender"}</td>
     </tr>
   )
 }
