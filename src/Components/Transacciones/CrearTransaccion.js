@@ -4,7 +4,6 @@ import { agregarTransaccion } from "../../Features/transaccionesSlice";
 import { guardarMonedas } from "../../Features/monedasReducer";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import '../../Styles/CrearTransaccion.css'
 import Option from '../Option';
 
 
@@ -14,8 +13,9 @@ const CrearTransaccion = () => {
 
   const monedaRef = useRef(0);
   const montoRef = useRef(0);
-  const [valorMoneda, setValorMoneda] = useState("");
+  const [valorMoneda, setValorMoneda] = useState("$ 0.00");
   const [monedas, setMonedas] = useState([]);
+  const [isDisabled, setDisabled] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -44,6 +44,7 @@ const CrearTransaccion = () => {
   //#endregion
   const valorMonedaActual = e => {
     setValorMoneda("$ " + monedas.find(moneda => moneda.value == monedaRef.current.value).cotizacion);
+    setDisabled(false);
   }
   //#region Registrar transaccion
 
@@ -105,7 +106,6 @@ const CrearTransaccion = () => {
             });
             break;
         }
-
       })
       .catch(error => console.log('error', error));
   }
@@ -131,8 +131,8 @@ const CrearTransaccion = () => {
         <input min="0" step="1" ref={montoRef} type='number'></input>
       </article>
       <article>
-        <p><button className='GreenTransBtn' id="1" onClick={registrarTrans}>COMPRAR</button></p>
-        <p><button className='RedTransBtn' id="2" onClick={registrarTrans}>VENDER</button></p>
+        <p><button className='GreenTransBtn' disabled={isDisabled} id="1" onClick={registrarTrans}>COMPRAR</button></p>
+        <p><button className='RedTransBtn' disabled={isDisabled} id="2" onClick={registrarTrans}>VENDER</button></p>
       </article>
       <ToastContainer />
     </section>
