@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { guardarApiKey, guardarId } from "../Features/apiKeyReducer";
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -11,6 +13,7 @@ const Login = () => {
   const [isDisabled, setDisabled] = useState(true);
 
   let navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const habilitarBoton = e => {
     let userNew = user.current.value;
@@ -31,8 +34,8 @@ const Login = () => {
     myHeaders.append("Content-Type", "application/json");
 
     let raw = JSON.stringify({
-      "usuario": "crypto",
-      "password": "crypto"
+      "usuario": userNew,
+      "password": passNew
     });
 
     let requestOptions = {
@@ -47,12 +50,14 @@ const Login = () => {
       .then(result => {
         switch (result.codigo) {
           case 200:
-            let usuarioLogeado = {
+            dispatch(guardarApiKey(result.apiKey));
+            dispatch(guardarId(result.id));
+            /* let usuarioLogeado = {
               id: result.id,
-              user: userNew,
-              token: result.apiKey
+              token: result.apiKey,
+              user: userNew
             }
-            localStorage.setItem("user", usuarioLogeado);
+            localStorage.setItem("user", usuarioLogeado); */
             toast.success("Se a iniciado sesión correctamente", {
               position: "bottom-center",
               autoClose: 5000,

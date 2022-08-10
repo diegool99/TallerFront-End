@@ -9,7 +9,8 @@ import Option from '../Option';
 
 const CrearTransaccion = () => {
 
-  const token = useSelector(state => state.apiKey.apiKey);
+  const apiKey = useSelector(state => state.apiKey.apiKey);
+  const id = useSelector(state => state.apiKey.id);
 
   const monedaRef = useRef(0);
   const montoRef = useRef(0);
@@ -21,7 +22,7 @@ const CrearTransaccion = () => {
   useEffect(() => {
 
     let myHeaders = new Headers();
-    myHeaders.append("apiKey", token);
+    myHeaders.append("apiKey", apiKey);
     myHeaders.append("Content-Type", "application/json");
 
     let requestOptions = {
@@ -53,11 +54,11 @@ const CrearTransaccion = () => {
     let cotizacion = monedas.find(moneda => moneda.value == monedaRef.current.value);
 
     let myHeaders = new Headers();
-    myHeaders.append("apiKey", token);
+    myHeaders.append("apiKey", apiKey);
     myHeaders.append("Content-Type", "application/json");
 
     let raw = {
-      "usuarios_id": 3,
+      "usuarios_id": id,
       "tipo_operacion": e.target.id,
       "moneda": monedaRef.current.value,
       "cantidad": montoRef.current.value,
@@ -77,6 +78,7 @@ const CrearTransaccion = () => {
         switch (result.codigo) {
           case 200:
             raw.id = result.idTransaccion;
+            console.log("el numero es"+id);
             dispatch(agregarTransaccion(raw));
             toast.success(result.mensaje, {
               position: "bottom-center",
@@ -92,6 +94,7 @@ const CrearTransaccion = () => {
             });
             break;
           default:
+            console.log("el numero es"+id);
             toast.warn(result.mensaje, {
               position: "bottom-center",
               autoClose: 5000,
